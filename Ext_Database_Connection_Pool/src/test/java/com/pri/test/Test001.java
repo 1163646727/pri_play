@@ -21,7 +21,6 @@ public class Test001 {
 			Thread thread = new Thread(threadConnection, "线程i:" + i);
 			thread.start();
 		}
-		//测试 ChenQi;
 	}
 
 }
