@@ -2,9 +2,10 @@ package com.pri.builder;
 
 /**
  * interfaceName:  PersonBuilder <BR>
- * description: 接口规范<BR>
- * remark: 给出一个抽象接口，以规范产品对象的各个组成部分的创建，<BR>
- *     这个接口规范需要实现对对象的创建的部分，但不涉及具体的创建<BR>
+ * description: 抽象建造者<BR>
+ * remark: 为创建一个产品的各个部件指定了标准，<BR>
+ *      规定了要创建复杂对象需要创建哪些部分，<BR>
+ *      但不涉及具体的创建<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-08-30 13:30 <BR>
  */

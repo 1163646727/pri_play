@@ -3,7 +3,9 @@ package com.pri.builder;
 /**
  * className:  ConcreteBuilder <BR>
  * description: 具体创建者<BR>
- * remark: <BR>
+ * remark: 实现各个部分的具体构造和装配方法，<BR>
+ *      定义并明确它所创建的复杂对象，<BR>
+ *      也可以提供一个方法返回创建好的复杂产品对象。<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-08-30 13:44 <BR>
  */

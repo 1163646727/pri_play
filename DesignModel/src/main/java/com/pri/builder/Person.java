@@ -2,8 +2,9 @@ package com.pri.builder;
 
 /**
  * className:  Person <BR>
- * description: 产品实例<BR>
- * remark: <BR>
+ * description: 产品实例(产品角色)<BR>
+ * remark: 被建造的复杂对象，包含多个组成部分，<BR>
+ *      具体建造者创建该产品的内部表示并定义它的装配过程。<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-08-30 13:26 <BR>
  */
