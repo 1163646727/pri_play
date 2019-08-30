@@ -1,3 +1,4 @@
+import com.pri.entity.User;
 import com.pri.ioc.anno.app.ExtClassPathBeanDefinitionScanner;
 import com.pri.service.impl.UserServiceImpl;
 
@@ -15,4 +16,5 @@ public class Test001 {
         userServiceImpl.del ();
         System.out.println(userServiceImpl);
     }
+
 }

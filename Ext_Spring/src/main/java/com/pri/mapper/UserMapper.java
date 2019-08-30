@@ -5,6 +5,7 @@ import com.pri.aop.annotation.ExtParam;
 import com.pri.aop.annotation.ExtSelect;
 import com.pri.entity.User;
 
+
 public interface UserMapper {
 
 	@ExtInsert("insert into user(userName,userAge) values(#{userName},#{userAge})")
