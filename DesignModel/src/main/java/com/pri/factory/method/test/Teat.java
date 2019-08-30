@@ -3,13 +3,12 @@ package com.pri.factory.method.test;
 import com.pri.factory.method.AoDiFactory;
 import com.pri.factory.method.Car;
 import com.pri.factory.method.JiLiFactory;
-
 /**
- * @ClassName: Teat
- * @Description:
- * @Auther: Chenqi
- * @Date: 2019/7/15 0015 下午 8:09
- * @Version 1.0 jdk1.8
+ * className:  Teat <BR>
+ * description: 测试类<BR>
+ * remark: <BR>
+ * author:  ChenQi <BR>
+ * createDate:  2019-08-28 17:27 <BR>
  */
 public class Teat {
     public static void main(String[] args) {

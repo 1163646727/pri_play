@@ -1,11 +1,11 @@
 package com.pri.factory.abstracts;
 
 /**
- * @ClassName: JiLiFactory
- * @Description: 具体工厂类;负责产生具体产品
- * @Auther: Chenqi
- * @Date: 2019/7/15 0015 下午 8:25
- * @Version 1.0 jdk1.8
+ * className:  JiLiFactory <BR>
+ * description: 具体工厂类(吉利工厂)<BR>
+ * remark: 负责生产具体产品<BR>
+ * author:  ChenQi <BR>
+ * createDate:  2019-08-29 09:36 <BR>
  */
 public class JiLiFactory implements CarFactory {
     public Engine createEngine() {

@@ -5,11 +5,11 @@ import com.pri.factory.abstracts.Engine;
 import com.pri.factory.abstracts.JiLiFactory;
 
 /**
- * @ClassName: Test
- * @Description:
- * @Auther: Chenqi
- * @Date: 2019/7/15 0015 下午 8:26
- * @Version 1.0 jdk1.8
+ * className:  Test <BR>
+ * description: 抽象工厂模式测试<BR>
+ * remark: <BR>
+ * author:  ChenQi <BR>
+ * createDate:  2019-08-29 09:40 <BR>
  */
 public class Test {
     public static void main(String[] args) {

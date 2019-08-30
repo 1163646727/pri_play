@@ -1,11 +1,11 @@
 package com.pri.factory.method;
 
 /**
- * @ClassName: JiLi
- * @Description:
- * @Auther: Chenqi
- * @Date: 2019/7/15 0015 下午 7:41
- * @Version 1.0 jdk1.8
+ * className:  JiLi <BR>
+ * description: 子类<BR>
+ * remark: <BR>
+ * author:  ChenQi <BR>
+ * createDate:  2019-08-28 17:23 <BR>
  */
 public class JiLi implements Car{
     public void run() {
