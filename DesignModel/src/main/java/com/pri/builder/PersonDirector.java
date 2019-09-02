@@ -26,7 +26,9 @@ public class PersonDirector {
     }
 
     public static void main(String[] args) {
+        // 实例化指挥者对象ChenQi;
         PersonDirector personDirector = new PersonDirector();
+        // 创建对象的各个部分 ChenQi;
         Person person = personDirector.constructPerson(new ConcreteBuilder());
         System.out.println(person.getHead());
         System.out.println(person.getBody());

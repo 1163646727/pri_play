@@ -11,7 +11,6 @@ package com.pri.builder;
  */
 public class ConcreteBuilder implements PersonBuilder {
     private Person person;
-
     /**
      * methodName: ConcreteBuilder <BR>
      * description: 构造函数<BR>
@@ -28,17 +27,14 @@ public class ConcreteBuilder implements PersonBuilder {
     public void builderHead() {
         person.setHead("创建者头部分");
     }
-
     @Override
     public void buliderBody() {
         person.setBody("创建者身体部分");
     }
-
     @Override
     public void builderFoot() {
         person.setFoot("创建者四肢部分");
     }
-
     @Override
     public Person BuilderPerson() {
         return person;
