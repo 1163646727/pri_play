@@ -1,4 +1,4 @@
-package com.pri.adapter.observer;
+package com.pri.observer;
 
 import java.util.ArrayList;
 import java.util.List;
