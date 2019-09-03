@@ -27,6 +27,15 @@ public class WeiXinUser implements Observer {
     public WeiXinUser(String name){
         this.name = name;
     }
+    /**
+     * methodName: update <BR>
+     * description: 更新的方法<BR>
+     * remark: 在得到主题更改通知时更新自己 <BR>
+     * param: message <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-09-03 11:25 <BR>
+     */
     @Override
     public void update(String message) {
         System.out.println(name+"--"+message);

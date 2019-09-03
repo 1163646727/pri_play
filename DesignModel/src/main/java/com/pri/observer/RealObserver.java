@@ -2,18 +2,23 @@ package com.pri.observer;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * className:  RealObserver <BR>
  * description: 具体被观察者<BR>
  * remark: 微信公众号是具体主题（具体被观察者），<BR>
  * 里面存储了订阅该公众号的微信用户，并实现了抽象主题的方法<BR>
+ * 该角色将有关状态存入具体观察者对象，在具体主题的内部状态发生改变时，<BR>
+ * 给所有注册过的观察者发送通知。<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-09-02 20:08 <BR>
  */
 public class RealObserver implements Subject{
-
-    // 存储订阅公众号的微信用户 ChenQi;
+    /**
+     * description: 存储订阅公众号的微信用户
+     * 把所有观察者对象保存在一个集合里，每个主题都可以有任意数量的观察者。
+     * author:  ChenQi <BR>
+     * createDate:  2019-09-03 11:29  <BR>
+     */
     private List<Observer> list = new ArrayList<Observer>();
 
     /**

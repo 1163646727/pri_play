@@ -8,7 +8,6 @@ package com.pri.observer;
  * createDate:  2019-09-02 20:14 <BR>
  */
 public class Client {
-
     public static void main(String[] args) {
         // 实例化具体观察者 ChenQi;
         RealObserver realObserver = new RealObserver();

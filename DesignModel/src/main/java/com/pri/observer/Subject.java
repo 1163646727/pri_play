@@ -2,8 +2,8 @@ package com.pri.observer;
 
 /**
  * interfaceName:  Subject <BR>
- * description: 主题<BR>
- * remark: 抽象被观察者<BR>
+ * description: 抽象主题（抽象被观察者）<BR>
+ * remark: 抽象被观察者,抽象主题提供一个接口，可以增加和删除观察者对象<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-09-02 20:02 <BR>
  */
@@ -38,5 +38,4 @@ public interface Subject {
      * createDate: 2019-09-02 20:06 <BR>
      */
     public void notifyAllObserver(String message);
-    
 }
