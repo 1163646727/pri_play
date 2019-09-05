@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
  * createDate:  2019-09-04 14:09 <BR>
  */
 // 切面类注解ChenQi;
-// @Aspect
+@Aspect
 // 添加到spring容器中ChenQi;
 @Component
 public class AopLog {

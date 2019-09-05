@@ -22,7 +22,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
  * createDate:  2019-09-04 19:45 <BR>
  */
 // 切面类注解 ChenQi;
-@Aspect
+// @Aspect
 @Component
 public class ExtAopTransactionAnnotation {
     @Autowired

@@ -1,5 +1,7 @@
 package com.pri.service;
 
+import com.pri.ioc.annotation.ExtService;
+
 /**
  * @InterfaceName: UserService
  * @Description:

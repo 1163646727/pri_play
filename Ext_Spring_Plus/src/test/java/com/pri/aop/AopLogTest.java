@@ -17,7 +17,7 @@ public class AopLogTest {
             new ClassPathXmlApplicationContext("spring.xml");
         // 实例化UserService对象 ChenQi;
         UserService userService = (UserService) applicationContext.getBean("userServiceImpl");
-        userService.add();
         userService.add2();
+        userService.add();
     }
 }
