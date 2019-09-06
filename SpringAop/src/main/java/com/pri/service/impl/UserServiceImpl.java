@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @ExtTransaction
     public void add() {
         userDao.add("test001",20);
-        int i = 1 / 0;
+        // int i = 1 / 0;
         System.out.println("################");
         userDao.add("test002", 21);
     }

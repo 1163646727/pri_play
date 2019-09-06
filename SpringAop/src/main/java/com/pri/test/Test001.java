@@ -12,7 +12,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Test001 {
 
 	public static void main(String[] args) {
+		// 读取上下文 ChenQi;
 		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+		// 实例化UserService对象 ChenQi;
 		UserService userService = (UserService) applicationContext.getBean("userServiceImpl");
 		userService.add();
 	}

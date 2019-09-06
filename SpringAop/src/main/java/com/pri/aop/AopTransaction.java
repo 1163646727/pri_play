@@ -31,9 +31,9 @@ public class AopTransaction {
      *@Author: ChenQi
      *@CreateDate: 2019/7/14 0014 下午 8:43
      */
-    //@AfterThrowing("execution(* com.pri.service.UserService.add(..))")
+    @AfterThrowing("execution(* com.pri.service.UserService.add(..))")
     public void afterThrowing(){
-        System.out.println("回滚事务");
+        System.out.println("AopTransaction_回滚事务");
         //获取当前事务。直接回滚 ChenQi;
         TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
     }
@@ -46,17 +46,17 @@ public class AopTransaction {
      *@Author: ChenQi
      *@CreateDate: 2019/7/14 0014 下午 9:04
      */
-    //@Around("execution(* com.pri.service.UserService.add(..))")
+    @Around("execution(* com.pri.service.UserService.add(..))")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws  Throwable{
         //调用方法之前执行 ChenQi;
-        System.out.println("开启事务");
+        System.out.println("AopTransaction_开启事务");
         TransactionStatus transactionStatus = transactionUtils.begin();
 
         //代理调用方法，如果调用方法抛出异常，不会执行后面的代码 ChenQi;
         proceedingJoinPoint.proceed();
 
         //调用方法之后执行 ChenQi;
-        System.out.println("提交事务");
+        System.out.println("AopTransaction_提交事务");
         transactionUtils.commit(transactionStatus);
     }
 }

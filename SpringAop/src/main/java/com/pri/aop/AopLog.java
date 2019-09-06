@@ -22,37 +22,37 @@ import org.springframework.stereotype.Component;
 public class AopLog {
 	
 	//前置通知
-	//@Before("execution(* com.pri.service.UserService.add(..))")
+	@Before("execution(* com.pri.service.UserService.add(..))")
 	public void before(){
-		System.out.println("前置通知 在方法之前执行...");
+		System.out.println("AopLog_前置通知 在方法之前执行...");
 	}
 	// 后置通知 在方法运行后执行
-	//@After("execution(* com.pri.service.UserService.add(..))")
+	@After("execution(* com.pri.service.UserService.add(..))")
 	public void after() {
-	System.out.println("后置通知 在方法之后执行...");
+	System.out.println("AopLog_后置通知 在方法之后执行...");
 	}
 	
 	// 异常通知
-	//@AfterThrowing("execution(* com.pri.service.UserService.add(..))")
+	@AfterThrowing("execution(* com.pri.service.UserService.add(..))")
 	public void afterThrowing() {
-	System.out.println("异常通知");
+	System.out.println("AopLog_异常通知");
 	}
 	
 	// 环绕通知 在方法之前和之后处理事情
-	//@Around("execution(* com.pri.service.UserService.add(..))")
+	@Around("execution(* com.pri.service.UserService.add(..))")
 	public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
 		// 调用方法之前执行
-		System.out.println("环绕通知 调用方法之前执行");
+		System.out.println("AopLog_环绕通知 调用方法之前执行");
 		// 代理调用方法 注意点： 如果调用方法抛出溢出不会执行后面代码
 		proceedingJoinPoint.proceed();
 		// 调用方法之后执行
-		System.out.println("环绕通知 调用方法之后执行");
+		System.out.println("AopLog_环绕通知 调用方法之后执行");
 	}
 	
 	// 运行通知
-	//@AfterReturning("execution(* com.pri.service.UserService.add(..))")
+	@AfterReturning("execution(* com.pri.service.UserService.add(..))")
 	public void returning() {
-	System.out.println("运行通知");
+	System.out.println("AopLog_运行通知");
 	}
 
 }

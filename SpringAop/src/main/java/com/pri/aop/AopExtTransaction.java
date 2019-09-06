@@ -41,7 +41,7 @@ public class AopExtTransaction {
     @AfterThrowing("execution(* com.pri.service.*.*(..))")
     public void afterThrowing() {
         // 获取当前事务进行回滚
-        System.out.println("注解事务回滚！");
+        System.out.println("AopExtTransaction_注解事务回滚！");
         TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         //transactionUtils.rollback();
     }
@@ -86,7 +86,7 @@ public class AopExtTransaction {
             return null;
         }
         // 2.如果存在事务注解,开启事务
-        System.out.println("注解事务开启！");
+        System.out.println("AopExtTransaction_注解事务开启！");
         return transactionUtils.begin();
     }
 
@@ -102,7 +102,7 @@ public class AopExtTransaction {
     private void commit(TransactionStatus transactionStatus) {
         if (transactionStatus != null) {
             // 5.如果存在注解,提交事务
-            System.out.println("注解事务提交！");
+            System.out.println("AopExtTransaction_注解事务提交！");
             transactionUtils.commit(transactionStatus);
         }
     }
