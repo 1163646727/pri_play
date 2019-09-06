@@ -16,8 +16,10 @@ import org.apache.commons.lang.StringUtils;
  * description: 手写SpringIOC<BR>
  * remark: 注解版SpringIoc<BR>
  *     1.使用Java反射机制进行扫包，获取包下的全部类<BR>
- *     2.判断类上是否存在注入bean的注解(ExtSerivce)<BR>
- *     3.如果存在注入bena的注解，使用反射机制，进行初始化操作<BR>
+ *     2.判断类上是否存在注入bean的注解(ExtSerivce、ExtComponent等)；<BR>
+ *         2.1 如果存在，将该类注入bean容器中<BR>
+ *     3.遍历bean容器，判断对象的属性上存在ExtAutowired注解<BR>
+ *         3.1 如果存在，自动装配<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-09-06 11:06 <BR>
  */
@@ -118,7 +120,6 @@ public class ExtClassPathApplicationContext {
             }
         }
     }
-
 
     /**
      * methodName: toLowerCaseFirstOne <BR>

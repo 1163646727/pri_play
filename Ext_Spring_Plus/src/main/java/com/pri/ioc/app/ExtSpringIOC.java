@@ -13,8 +13,8 @@ import org.apache.commons.lang.StringUtils;
  * description: 手写SpringIOC<BR>
  * remark: 注解版SpringIoc<BR>
  *     1.使用Java反射机制进行扫包，获取包下的全部类<BR>
- *     2.判断类上是否存在注入bean的注解(ExtSerivce)<BR>
- *     3.如果存在注入bena的注解，使用反射机制，进行初始化操作<BR>
+ *     2.判断类上是否存在注入bean的注解(ExtSerivce、ExtComponent等)；<BR>
+ *         2.1 如果存在，将该类注入bean容器中<BR>
  *
  *         预期效果：通过切面类AopExtAutowired，实现自动装配<BR>
  *         遇到问题：使用自定的@ExtRepository、@ExtService注解，通过@Aspect编程的切面类是无法通知到的<BR>
