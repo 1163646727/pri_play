@@ -17,10 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
  * @Date: 2019/7/12 0012 下午 10:53
  * @Version 1.0 jdk1.8
  */
-@ExtTransaction
+// @ExtTransaction
 @ExtService
+@Service
 public class UserServiceImpl implements UserService {
     @ExtAutowired
+    @Autowired
     private UserDao userDao;
 
     @Override

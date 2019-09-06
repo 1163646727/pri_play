@@ -29,10 +29,11 @@ public class AopTransation {
     // 异常通知ChenQi;
     @AfterThrowing("execution(* com.pri.service.UserService.add(..))")
     public void afterThrowing(){
-        System.out.println("事务切面_回滚事务");
+        System.out.println("AopTransation_事务切面_回滚事务");
         // 获取当前事务，直接回滚 ChenQi;
         TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
     }
+
     /**
      * methodName: around <BR>
      * description: 环绕通知<BR>
@@ -42,10 +43,11 @@ public class AopTransation {
      * author: ChenQi <BR>
      * createDate: 2019-09-04 14:24 <BR>
      */
+
     @Around("execution(* com.pri.service.UserService.add(..))")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         // 调用方法之前，开启事务 ChenQi;
-        System.out.println("开启事务");
+        System.out.println("AopTransation_开启事务");
         TransactionStatus transactionStatus = transactionUtils.begin();
         /**
          * description: 调用代理方法，注意:如果调用方法抛出异常，不会执行后面的代码
@@ -54,7 +56,7 @@ public class AopTransation {
          */
         proceedingJoinPoint.proceed();
         // 调用方法之后，提交事务 ChenQi;
-        System.out.println("提交事务");
+        System.out.println("AopTransation_提交事务");
         transactionUtils.commit(transactionStatus);
     }
 }

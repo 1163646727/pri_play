@@ -4,11 +4,7 @@ import com.pri.ioc.annotation.ExtAutowired;
 import com.pri.ioc.annotation.ExtComponent;
 import com.pri.ioc.annotation.ExtService;
 import com.pri.ioc.utils.ClassUtil;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
@@ -19,6 +15,10 @@ import org.apache.commons.lang.StringUtils;
  *     1.使用Java反射机制进行扫包，获取包下的全部类<BR>
  *     2.判断类上是否存在注入bean的注解(ExtSerivce)<BR>
  *     3.如果存在注入bena的注解，使用反射机制，进行初始化操作<BR>
+ *
+ *         预期效果：通过切面类AopExtAutowired，实现自动装配<BR>
+ *         遇到问题：使用自定的@ExtRepository、@ExtService注解，通过@Aspect编程的切面类是无法通知到的<BR>
+ *
  * author:  ChenQi <BR>
  * createDate:  2019-09-05 16:11 <BR>
  */
@@ -27,8 +27,6 @@ public class ExtSpringIOC {
     private String packagePath = "com.pri";
     // bean工厂，存放bean对象 ChenQi;
     private static HashMap<String,Object> beanMap = new HashMap<String,Object>();
-    // 存储全部类 ChenQi;
-    private List<Class<?>> ClassScannerList;
 
     /**
      * methodName: ExtSpringIOC <BR>
@@ -42,8 +40,6 @@ public class ExtSpringIOC {
     public ExtSpringIOC() throws Exception {
         //使用使用反射机制，进行初始化 ChenQi;
         ClassAnnotationScannerList();
-        //自动装配 ChenQi;
-        //autowired();
     }
     /**
      * methodName: ClassAnnotationScannerList <BR>
@@ -59,7 +55,7 @@ public class ExtSpringIOC {
             throw new Exception ("扫包地址不能为空!");
         }
         //使用反射机制，获取包下的全部类 ChenQi;
-        ClassScannerList = ClassUtil.getClasses (packagePath);
+        List<Class<?>> ClassScannerList = ClassUtil.getClasses (packagePath);
         for (Class classInfo : ClassScannerList) {
             ExtService extService = (ExtService) classInfo.getDeclaredAnnotation(ExtService.class);
             ExtComponent extComponent =  (ExtComponent)classInfo.getDeclaredAnnotation(ExtComponent.class);
@@ -75,45 +71,6 @@ public class ExtSpringIOC {
             }
         }
     }
-
-    /**
-     * methodName: autowired <BR>
-     * description: 自动装配 <BR>
-     * remark: <BR>
-     * param:  <BR>
-     * return: void <BR>
-     * author: ChenQi <BR>
-     * createDate: 2019-09-05 17:10 <BR>
-     */
-    public void autowired(){
-        for (Class classInfo : ClassScannerList) {
-            // 获取类的属性 ChenQi;
-            Field[] propertys = classInfo.getDeclaredFields();
-            for (Field property : propertys) {
-                ExtAutowired extAutowired = property.getDeclaredAnnotation(ExtAutowired.class);
-                //如果属性上存在ExtAutowired注解，自动装配 ChenQi;
-                if (extAutowired != null){
-                    //获取属性名称 ChenQi;
-                    String beanName = toLowerCaseFirstOne(property.getType().getSimpleName());
-                    //根据属性名到bean工厂里获取对象 ChenQi;
-                    Object bean = beanMap.get (beanName);
-                    if (bean != null){
-                        //允许私有属性被访问 ChenQi;
-                        property.setAccessible (true);
-                        try {
-                            //给属性赋值，实现自动装配  ChenQi;
-                            property.set (classInfo.newInstance(),bean);
-                        } catch (IllegalAccessException e) {
-                            e.printStackTrace ();
-                        } catch (InstantiationException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 
     /**
      * methodName: toLowerCaseFirstOne <BR>
@@ -145,5 +102,4 @@ public class ExtSpringIOC {
         Object object =  beanMap.get (benaName);
         return object;
     }
-
 }

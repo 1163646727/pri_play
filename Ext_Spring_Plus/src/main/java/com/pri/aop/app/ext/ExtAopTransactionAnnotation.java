@@ -54,6 +54,7 @@ public class ExtAopTransactionAnnotation {
         // 提交事务 ChenQi;
         commit(transactionStatus);
     }
+
     /**
      * methodName: getMethodExtTransaction <BR>
      * description: 获取该代理对象调用的方法上的注解<BR>
@@ -96,7 +97,7 @@ public class ExtAopTransactionAnnotation {
             return null;
         }
         // 2.如果存在事务注解,开启事务
-        System.out.println("注解事务开启！");
+        System.out.println("ExtAopTransactionAnnotation_注解事务开启！");
         return transactionUtils.begin();
     }
 
@@ -104,7 +105,7 @@ public class ExtAopTransactionAnnotation {
     @AfterThrowing("execution(* com.pri.service.*.*(..))")
     public void afterThrowing(){
         if (extTransaction != null) {
-            System.out.println("事务注解_回滚事务");
+            System.out.println("ExtAopTransactionAnnotation_事务注解_回滚事务");
             // 获取当前事务，直接回滚 ChenQi;
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
@@ -122,7 +123,7 @@ public class ExtAopTransactionAnnotation {
     private void commit(TransactionStatus transactionStatus) {
         if (transactionStatus != null) {
             // 5.如果存在注解,提交事务
-            System.out.println("注解事务提交！");
+            System.out.println("ExtAopTransactionAnnotation_注解事务提交！");
             transactionUtils.commit(transactionStatus);
         }
     }
