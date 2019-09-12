@@ -14,7 +14,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
  * className:  AopTransation <BR>
  * description: 事务切面类<BR>
  * remark: 注解版实现事务框架，基于手动事务封装<BR>
- *     运用环绕通知+异常通知技术<BR>
+ *     运用环绕通知(全部方法)+异常通知技术<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-09-04 16:09 <BR>
  */

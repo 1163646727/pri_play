@@ -17,7 +17,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
  * className:  ExtAopTransactionAnnotation <BR>
  * description: 事务注解切面类<BR>
  * remark: 自定义事务注解的切面类，具体实现事务功能<BR>
- *     运用环绕通知+异常通知技术<BR>
+ *     运用环绕通知(@ExtTransaction的方法)+异常通知技术<BR>
  * author:  ChenQi <BR>
  * createDate:  2019-09-04 19:45 <BR>
  */
