@@ -10,7 +10,6 @@ import com.pri.util.ExtArrayListHashMap;
  * createDate:  2019-09-24 09:31 <BR>
  */
 public class ExtArrayListHashMapTest {
-
     public static void main(String[] args) {
         ExtArrayListHashMap map = new ExtArrayListHashMap();
         map.put("a","aaa");

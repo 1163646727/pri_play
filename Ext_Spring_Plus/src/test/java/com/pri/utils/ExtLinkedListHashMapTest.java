@@ -17,5 +17,4 @@ public class ExtLinkedListHashMapTest {
         map.put("a", "ccc");
         System.out.println("a:"+map.get("a"));
     }
-
 }
