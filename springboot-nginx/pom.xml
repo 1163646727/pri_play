@@ -4,6 +4,7 @@
 	<groupId>com.itmayiedu</groupId>
 	<artifactId>springboot-nginx</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -17,8 +18,36 @@
 		</dependency>
 	</dependencies>
 
-
-
-
+	<build>
+		<!--finalName指定最终生成Jar包的名称，如果不指定，则为前面配置
+         artifactId+version（energy.0.0.1-SNAPSHOT.jar）作为jar包的名称-->
+		<finalName>springboot-nginx</finalName>
+		<!--配置资源-->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>application*.properties</exclude>
+					<exclude>conf/dev/*</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/conf/${profileActive}</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<!--在添加了该插件之后，当运行“mvn package”进行打包时，会打包成一个可以直接运
+                  行的 JAR 文件，使用“java -jar”命令就可以直接运行。这在很大程度上简化了应用
+                  的部署，只需要安装了 JRE 就可以运行。-->
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>   <!--热部署-->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
