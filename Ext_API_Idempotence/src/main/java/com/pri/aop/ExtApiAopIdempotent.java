@@ -1,11 +1,23 @@
 package com.pri.aop;
 
+import com.pri.annotation.ExtApiIdempotent;
+import com.pri.annotation.ExtApiToken;
+import com.pri.utils.ConstantUtils;
+import com.pri.utils.RedisToken;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletResponse;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -19,6 +31,8 @@ import javax.servlet.http.HttpServletRequest;
 @Aspect
 @Component
 public class ExtApiAopIdempotent {
+    @Autowired
+    private RedisToken redisToken;
     /**
      * methodName: rlAop <BR>
      * description: <BR>
@@ -30,6 +44,47 @@ public class ExtApiAopIdempotent {
      */
     @Pointcut("execution(public * com.pri.controller.*.*(..))")
     public void rlAop() {
+    }
+
+    @Before("rlAop()")
+    public void before(JoinPoint point){
+        MethodSignature methodSignature = (MethodSignature) point.getSignature();
+        ExtApiToken extApiToken = methodSignature.getMethod().getDeclaredAnnotation(ExtApiToken.class);
+        if (extApiToken != null) {
+            // 生成令牌，返回给前台 ChenQi;
+            getRequest().setAttribute("token", redisToken.getToken());
+        }
+    }
+
+    @Around("rlAop()")
+    public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        // 判断方法上是否有加ExtApiIdempotent ChenQi;
+        MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
+        ExtApiIdempotent extApiIdempotent = methodSignature.getMethod().getDeclaredAnnotation(ExtApiIdempotent.class);
+        // 如果方法上存在ExtApiIdempotent注解，验证幂等性 ChenQi;
+        if (extApiIdempotent != null) {
+            String token = null;
+            HttpServletRequest request = getRequest();
+            // 根据注解的type获取令牌 ChenQi;
+            String type = extApiIdempotent.type();
+            if (ConstantUtils.EXTAPIHEAD.equals(type)) {
+                token = request.getHeader("token");
+            }else if (ConstantUtils.EXTAPIFROM.equals(type)){
+                token = request.getParameter("token");
+            }else {
+                return "令牌错误！";
+            }
+            
+            // 查询令牌 ChenQi;
+            boolean isToken = redisToken.findToken(token);
+            if (!isToken) {
+                response("请勿重复提交！");
+                return null;
+            }
+        }
+        // 放行 ChenQi;
+        Object proceed = proceedingJoinPoint.proceed();
+        return proceed;
     }
 
     /**
@@ -45,5 +100,27 @@ public class ExtApiAopIdempotent {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         return request;
+    }
+
+    /**
+     * methodName: response <BR>
+     * description: 设置HttpServiceResponse响应<BR>
+     * remark: 返回操作信息<BR>
+     * param: msg <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-11-01 10:28 <BR>
+     */
+    public void response(String msg) throws IOException {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletResponse httpServletResponse = attributes.getResponse();
+        httpServletResponse.setHeader("Content-type", "text/html;charset=UTF-8");
+        PrintWriter printWriter = httpServletResponse.getWriter();
+        try {
+            printWriter.println(msg);
+        } catch (Exception e) {
+        } finally {
+            printWriter.close();
+        }
     }
 }

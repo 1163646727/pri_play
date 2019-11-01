@@ -1,15 +1,8 @@
-/**
- * 功能说明:
- * 功能作者:
- * 创建日期:
- * 版权归属:每特教育|蚂蚁课堂所有 www.itmayiedu.com
- */
 package com.pri.utils;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.UUID;
 
 /**

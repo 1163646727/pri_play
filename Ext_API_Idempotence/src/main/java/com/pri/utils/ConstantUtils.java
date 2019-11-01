@@ -8,8 +8,6 @@ package com.pri.utils;
  * createDate:  2019-10-31 23:55 <BR>
  */
 public interface ConstantUtils {
-
 	static final String EXTAPIHEAD = "head";
-
 	static final String EXTAPIFROM = "from";
 }
