@@ -5,11 +5,11 @@ import com.pri.invocation.InvocationHandlerImpl;
 import java.lang.reflect.Proxy;
 
 /**
- * @ClassName: Test
- * @Description:
- * @Auther: Chenqi
- * @Date: 2019/7/18 0018 下午 9:41
- * @Version 1.0 jdk1.8
+ * className:  Test2 <BR>
+ * description: <BR>
+ * remark: <BR>
+ * author:  ChenQi <BR>
+ * createDate:  2019-11-06 19:43 <BR>
  */
 public class Test2 {
     public static void main(String[] args) {
