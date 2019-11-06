@@ -143,7 +143,22 @@ public class ConnectionPool implements IConnectionPool {
         }
        return null;
     }
+
     public void releaseConnection(Connection connection) {
+        // 判断空闲池，最大连接数 ChenQi;
+        if (freeConnection.size() < dbBean.getMaxConnections()) {
+            if (isAvailable(connection)) {
+                // 存放到freeConnection容器中 ChenQi;
+                freeConnection.add(connection);
+            }
+        }else{
+            try {
+                // 关闭连接 ChenQi;
+                connection.close();
+            } catch (Exception e) {
+            }
+        }
+        countConne++;
 
     }
 }
