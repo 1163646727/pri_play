@@ -13,7 +13,7 @@ import java.lang.reflect.Proxy;
  */
 public class Test2 {
     public static void main(String[] args) {
-        //代理对象 ChenQi;
+        //动态代理实例 ChenQi;
         InvocationHandlerImpl invocationHandler = new InvocationHandlerImpl (UserDao.class);
 
         //被代理对象 ChenQi;
