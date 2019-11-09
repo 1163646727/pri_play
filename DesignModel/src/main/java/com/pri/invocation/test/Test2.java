@@ -16,7 +16,7 @@ public class Test2 {
         //动态代理实例 ChenQi;
         InvocationHandlerImpl invocationHandler = new InvocationHandlerImpl (UserDao.class);
 
-        //被代理对象 ChenQi;
+        //获取被代理对象的类加载器 ChenQi;
         ClassLoader classLoader = UserDao.class.getClassLoader ();
         //Class<?>[] interfaces = UserDao.class.getInterfaces ();
         Class<?>[] interfaces = new Class[] { UserDao.class };

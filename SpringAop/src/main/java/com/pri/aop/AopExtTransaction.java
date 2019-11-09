@@ -73,13 +73,13 @@ public class AopExtTransaction {
     }
 
     /**
-     *@MethodName:  begin
-     *@Description: 开始事务
-     * Remark:如果存在注解，开启事务，否则返回空
-     *@Param: [extTransaction]
-     *@Return: org.springframework.transaction.TransactionStatus
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/20 0020 上午 10:57
+     * methodName: begin <BR>
+     * description: 开始事务<BR>
+     * remark: 如果存在注解，开启事务，否则返回空<BR>
+     * param: extTransaction <BR>
+     * return: org.springframework.transaction.TransactionStatus <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-11-07 19:32 <BR>
      */
     private TransactionStatus begin(ExtTransaction extTransaction) {
         if (extTransaction == null) {
@@ -91,13 +91,13 @@ public class AopExtTransaction {
     }
 
     /**
-     *@MethodName:  commit
-     *@Description: 提交事务
-     * Remark: 如果事务不为空，当前提交事务
-     *@Param: [transactionStatus]
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/20 0020 上午 11:02
+     * methodName: commit <BR>
+     * description: 提交事务<BR>
+     * remark:  如果事务不为空，当前提交事务<BR>
+     * param: transactionStatus <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-11-07 19:32 <BR>
      */
     private void commit(TransactionStatus transactionStatus) {
         if (transactionStatus != null) {
@@ -108,12 +108,13 @@ public class AopExtTransaction {
     }
 
     /**
-     *@MethodName:  getMethodExtTransaction
-     *@Description: 获取该代理对象调用的方法上的注解
-     *@Param: [pjp]
-     *@Return: com.pri.annotation.ExtTransaction
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/20 0020 上午 11:05
+     * methodName: getMethodExtTransaction <BR>
+     * description: 获取该代理对象调用的方法上的注解<BR>
+     * remark: <BR>
+     * param: pjp <BR>
+     * return: com.pri.annotation.ExtTransaction <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-11-07 19:32 <BR>
      */
     private ExtTransaction getMethodExtTransaction(ProceedingJoinPoint pjp)
             throws NoSuchMethodException, SecurityException {

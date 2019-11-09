@@ -19,7 +19,7 @@ public class Test {
         //动态代理实例 ChenQi;
         InvocationHandlerImpl invocationHandler = new InvocationHandlerImpl (userDaoImpl);
 
-        //被代理对象 ChenQi;
+        //获取被代理对象的类加载器 ChenQi;
         ClassLoader classLoader = userDaoImpl.getClass ().getClassLoader ();
 
         /**

@@ -8,5 +8,5 @@ package com.pri.test.proxy;
  * createDate:  2019-08-29 14:00 <BR>
  */
 public class StaticProxyTest {
-    // UserDao userDao = UserDaoProxy(IUserDao);?
+    // UserDao userDao = UserDaoProxy(IUserDao);
 }
