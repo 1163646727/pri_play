@@ -1,4 +1,4 @@
-package com.pri.strategy;
+package com.pri.strategy.demo_1;
 
 /**
  * className:  Strategy <BR>
