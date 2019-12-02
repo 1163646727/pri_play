@@ -12,11 +12,11 @@ public class DbBean {
 	/* 链接属性 */
 	private String driverName = "com.mysql.jdbc.Driver";
 
-	private String url = "jdbc:mysql://47.99.193.138/test";
+	private String url = "jdbc:mysql://47.110.150.127/test";
 
 	private String userName = "root";
 
-	private String password = "123123";
+	private String password = "";
 
 	private String poolName = "test";// 连接池名字
 

@@ -39,7 +39,7 @@ public final class JDBCUtils {
 		/*
 		 * 获取URL
 		 */
-		URL = "jdbc:mysql://47.99.193.138:3306/test?useUnicode=true&characterEncoding=utf8";
+		URL = "jdbc:mysql://47.110.150.127:3306/test?useUnicode=true&characterEncoding=utf8";
 		/*
 		 * 获取用户名
 		 */
@@ -47,7 +47,7 @@ public final class JDBCUtils {
 		/*
 		 * 获取密码
 		 */
-		password = "123123";
+		password = "";
 		/*
 		 * 设置是否自动提交，一般为false不用改
 		 */
