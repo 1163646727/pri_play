@@ -1,4 +1,4 @@
-package com.pri.lock;
+package pri.com.lock;
 
 import java.util.concurrent.CountDownLatch;
 import org.I0Itec.zkclient.ZkClient;

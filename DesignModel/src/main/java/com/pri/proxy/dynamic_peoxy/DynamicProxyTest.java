@@ -16,7 +16,7 @@ public class DynamicProxyTest {
         System.out.println("正常访问--------------");
         BuyHouse buyHouse = new BuyHouseImpl();
         buyHouse.buyHouse();
-        System.out.println("静态代理访问--------------");
+        System.out.println("动态代理访问--------------");
         /** 获取被代理对象使用的类加载器 ChenQi */
         ClassLoader classLoader = buyHouse.getClass().getClassLoader();
         /** 获取被代理对象所实现的接口 ChenQi */

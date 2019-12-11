@@ -28,13 +28,11 @@ public class ZookeeperDistrbuteLock extends ZookeeperAbstractLock{
         // 使用zk临时事件监听 ChenQi;
         IZkDataListener iZkDataListener = new IZkDataListener() {
             //  监听连接删除事件ChenQi;
-            @Override
             public void handleDataDeleted(String path) throws Exception {
                 if (countDownLatch != null) {
                     countDownLatch.countDown();
                 }
             }
-            @Override
             public void handleDataChange(String arg0, Object arg1) throws Exception {
 
             }
