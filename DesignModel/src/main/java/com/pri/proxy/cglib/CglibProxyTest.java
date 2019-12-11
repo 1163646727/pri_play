@@ -15,7 +15,7 @@ public class CglibProxyTest {
         System.out.println("正常访问--------------");
         BuyHouse buyHouse = new BuyHouseImpl();
         buyHouse.buyHouse();
-        System.out.println("静态代理访问--------------");
+        System.out.println("CGLIB代理访问--------------");
         // 创建CGLIB代理对象 ChenQi;
         CglibProxy cglibProxy = new CglibProxy();
         // 创建代理对像 ChenQi;

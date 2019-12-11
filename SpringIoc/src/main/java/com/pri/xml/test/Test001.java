@@ -1,5 +1,6 @@
 package com.pri.xml.test;
 
+import com.pri.xml.app.CglibProxy;
 import com.pri.xml.app.ExtClassPathXmlApplicationContext;
 import com.pri.xml.service.impl.UserServiceImpl;
 
@@ -18,6 +19,11 @@ public class Test001 {
         userServiceImpl.add ();*/
         UserServiceImpl userServiceImpl = (UserServiceImpl)app.getObject ("userServiceImpl");
         userServiceImpl.add ();
-        System.out.println(userServiceImpl);
+        System.out.println(userServiceImpl.toString());
+
+        System.out.println("CGLIB代理访问--------------");
+        CglibProxy cglibProxy = new CglibProxy();
+        UserServiceImpl userService = (UserServiceImpl)cglibProxy.getInstance(userServiceImpl);
+        userService.add();
     }
 }
