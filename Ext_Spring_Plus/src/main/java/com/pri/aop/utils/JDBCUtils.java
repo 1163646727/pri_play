@@ -51,7 +51,7 @@ public final class JDBCUtils {
 		/*
 		 * 获取密码
 		 */
-		password = "";
+		password = "root";
 		/*
 		 * 设置是否自动提交，一般为false不用改
 		 */

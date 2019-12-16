@@ -10,7 +10,7 @@ public class DbBean {
 
 	private String userName = "root";
 
-	private String password = "";
+	private String password = "root";
 
 	private String poolName = "test";// 连接池名字
 
