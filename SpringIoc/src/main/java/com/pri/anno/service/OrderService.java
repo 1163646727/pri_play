@@ -1,8 +1,5 @@
-package com.pri.service;
-
+package com.pri.anno.service;
 
 public interface OrderService {
-
 	public void addOrder();
-
 }
