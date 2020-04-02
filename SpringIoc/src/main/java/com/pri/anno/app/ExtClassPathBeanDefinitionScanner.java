@@ -11,9 +11,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * className: ExtClassPathBeanDefinitionScanner <BR>
  * description: 自定义springIOC注解版本<BR>
  * remark: <BR>
- * 1.使用java的反射机制扫包，获取当前包下的全部类<BR>
- * 2.判断类上是否存在注入的bean注解<BR>
- * 3.如果存在注解，使用反射机制，进行初始化
+ * 1.使用java的扫包，获取当前包下的全部类<BR>
+ * 2.判断类上是否存在注入bean的注解<BR>
+ * 3.如果存在注解，使用反射机制创建实例，注入到bean容器<BR>
+ * 4.自动装配：遍历bean容器中的实例对象，判断对象的属性上是否存在自动注入的注解；<BR>
+ *   如果存在，进行自动装配<BR>
  * author: ChenQi <BR>
  * createDate: 2019-07-23 13:41 <BR>
  */
@@ -35,10 +37,10 @@ public class ExtClassPathBeanDefinitionScanner {
     public ExtClassPathBeanDefinitionScanner(String packagePath) throws Exception {
         this.packagePath = packagePath;
 
-        //使用使用反射机制，进行初始化 ChenQi;
+        //使用反射机制，创建实例注入到bean容器 ChenQi;
         ClassAnnotationSannerList();
 
-        // 使用反射读取类的属性,赋值信息  ChenQi;
+        // 自动装配 ChenQi;
         attriAssign();
 
     }
@@ -60,7 +62,7 @@ public class ExtClassPathBeanDefinitionScanner {
     /**
      * methodName: ClassAnnotationSannerList <BR>
      * description: 使用java的反射机制扫包，获取当前包下的全部类<BR>
-     * remark: <BR>
+     * remark: 如果存在注解，使用反射机制创建实例，注入到bean容器<BR>
      * param:  <BR>
      * return: void <BR>
      * author: ChenQi <BR>
@@ -105,8 +107,10 @@ public class ExtClassPathBeanDefinitionScanner {
 
     /**
      * methodName: attriAssign <BR>
-     * description: 使用反射读取类的属性,赋值信息<BR>
+     * description: 自动装配<BR>
      * remark: <BR>
+     * 遍历bean容器中的实例对象，判断对象的属性上是否存在自动注入的注解；<BR>
+     * 如果存在，进行自动装配<BR>
      * param:  <BR>
      * return: void <BR>
      * author: ChenQi <BR>
