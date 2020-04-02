@@ -6,11 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @InterfaceName: ExtTransaction
- * @Description:自定义事务注解
- * @Auther: Chenqi
- * @Date: 2019/7/20 0020 上午 9:16
- * @Version 1.0 jdk1.8
+ * className: ExtTransaction <BR>
+ * description: 自定义事务注解<BR>
+ * remark: 当业务实现类(*ServiceImpl)的方法需要添加事务的情况，在该方法在添加自定义事务注解@ExtTransaction,<BR>
+ *     就可以在目标方法前后做增强操作<BR>
+ * author: ChenQi <BR>
+ * createDate: 2019-7-20 09:29 <BR>
  */
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

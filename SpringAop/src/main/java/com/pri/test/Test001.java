@@ -4,10 +4,11 @@ import com.pri.service.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @ClassName:      Test001
- * @Description:	测试类
- * @Author:         ChenQi
- * @CreateDate:     2019/7/14 0014 下午 9:02
+ * className: Test001 <BR>
+ * description: 测试类<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019/7/14 10:24 <BR>
  */
 public class Test001 {
 

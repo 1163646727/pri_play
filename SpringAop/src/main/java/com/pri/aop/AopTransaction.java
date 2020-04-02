@@ -10,26 +10,27 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 /**
- * @ClassName: AopTransaction
- * @Description: aop技术封装手动事务, 切面类，基于手动事务封装
- * @Auther: Chenqi
- * @Date: 2019/7/14 0014 下午 8:29
- * @Version 1.0 jdk1.8
+ * className: AopTransaction <BR>
+ * description: SpringAop技术封装手动事务, 切面类，基于手动事务封装<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019/7/14 10:07 <BR>
  */
 @Component //添加到spring容器
 @Aspect //切面注解
 public class AopTransaction {
-    //TransactionUitl 不要实现成单例，因为如果是单例的话，可能发现线程安全问题 ChenQi;
+    //注入编程事务工具类,TransactionUitl 不要实现成单例，因为如果是单例的话，可能发现线程安全问题 ChenQi;
     @Autowired
     private TransactionUtils transactionUtils;
 
     /**
-     *@MethodName:  afterThrowing
-     *@Description: 异常通知
-     *@Param: []
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/14 0014 下午 8:43
+     * methodName: afterThrowing <BR>
+     * description: 异常通知<BR>
+     * remark: <BR>
+     * param:  <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019/7/14 10:09 <BR>
      */
     @AfterThrowing("execution(* com.pri.service.UserService.add(..))")
     public void afterThrowing(){
@@ -39,12 +40,13 @@ public class AopTransaction {
     }
 
     /**
-     *@MethodName:  around
-     *@Description: 环绕通知，在方法之前和之后处理事情
-     *@Param: [proceedingJoinPoint]
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/14 0014 下午 9:04
+     * methodName: around <BR>
+     * description: 环绕通知，在方法之前和之后处理事情<BR>
+     * remark: <BR>
+     * param: proceedingJoinPoint <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019/7/14 10:10 <BR>
      */
     @Around("execution(* com.pri.service.UserService.add(..))")
     public void around(ProceedingJoinPoint proceedingJoinPoint) throws  Throwable{

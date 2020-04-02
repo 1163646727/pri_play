@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 /**
- * @ClassName: UserDao
- * @Description:
- * @Auther: Chenqi
- * @Date: 2019/7/12 0012 下午 10:55
- * @Version 1.0 jdk1.8
+ * className: UserDao <BR>
+ * description: <BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019/7/12 10:12 <BR>
  */
 @Repository
 @Component

@@ -10,10 +10,11 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
- * @ClassName:  AopLog
- * @Description:  切面类测试
- * @Author:  ChenQi
- * @CreateDate:  2019/7/20 0020 上午 11:12
+ * className: AopLog <BR>
+ * description: 切面类测试<BR>
+ * remark: 通过spring的@Aspect注解实现前置通知、后置通知、环绕通知、异常通知等<BR>
+ * author: ChenQi <BR>
+ * createDate: 2019/7/20 0020 上午 11:12 <BR>
  */
 //切面类注解
 @Aspect

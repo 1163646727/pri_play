@@ -11,15 +11,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
-
 import java.lang.reflect.Method;
 
 /**
- * @ClassName: AopExtTransaction
- * @Description: 自定义事务注解的切面类，具体实现事务功能
- * @Auther: Chenqi
- * @Date: 2019/7/20 0020 上午 9:37
- * @Version 1.0 jdk1.8
+ * className: AopExtTransaction <BR>
+ * description: 自定义事务注解的切面类，具体实现事务功能<BR>
+ * remark: 在前置通知或者环绕通知中，获取目标方法上的注解，如果存在ExtTransaction注解，则增强事务<BR>
+ * author: ChenQi <BR>
+ * createDate: 2019/7/20 0020 09:59 <BR>
  */
 //切面类注解
 @Aspect
@@ -31,12 +30,13 @@ public class AopExtTransaction {
     private TransactionUtils transactionUtils;
 
     /**
-     *@MethodName:  afterThrowing
-     *@Description: 异常通知;回滚事务
-     *@Param: []
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/20 0020 上午 11:07
+     * methodName: afterThrowing <BR>
+     * description: 异常通知;回滚事务<BR>
+     * remark: <BR>
+     * param:  <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2020-04-02 10:03 <BR>
      */
     @AfterThrowing("execution(* com.pri.service.*.*(..))")
     public void afterThrowing() {
@@ -47,17 +47,17 @@ public class AopExtTransaction {
     }
 
     /**
-     *@MethodName:  around
-     *@Description: 环绕通知 在方法之前和之后处理事情
-     * Remark:
-     * 获取该方法上是否加上注解<BR>
+     * methodName: around <BR>
+     * description: 环绕通知 在方法之前和之后处理事情<BR>
+     * remark: <BR>
+     * 获取该方法上是否加上自定义的ExtTransaction注解<BR>
      * 如果存在事务注解,开启事务<BR>
      * 执行目标代理对象调用的方法<BR>
      * 如果存在注解,提交事务<BR>
-     *@Param: [pjp]
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/20 0020 上午 10:53
+     * param: pjp <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2020-04-02 10:04 <BR>
      */
     //扫包范围 ChenQi;
     @Around("execution(* com.pri.service.*.*(..))")
