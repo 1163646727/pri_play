@@ -13,7 +13,9 @@ import com.pri.anno.service.impl.UserServiceImpl;
  */
 public class Test001 {
     public static void main(String[] args) throws Exception {
+        // 初始化bean容器 ChenQi
         ExtClassPathBeanDefinitionScanner app = new ExtClassPathBeanDefinitionScanner("com.pri.anno.service.impl");
+        // 从bean容器中获取bean对象 ChenQi
         UserServiceImpl userServiceImpl = (UserServiceImpl)app.getBean ("userServiceImpl");
         userServiceImpl.add ();
         System.out.println(userServiceImpl);

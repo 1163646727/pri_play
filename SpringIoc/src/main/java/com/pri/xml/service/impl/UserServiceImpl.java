@@ -2,11 +2,11 @@ package com.pri.xml.service.impl;
 
 import com.pri.xml.service.UserService;
 /**
- * class name:UserServiceImpl <BR>
- * class description: please write your description <BR>
- * Remark: <BR>
- * @version 1.00 2019年7月20日
- * @author **)ChenQi
+ * className: UserServiceImpl <BR>
+ * description: <BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2020-04-02 14:08 <BR>
  */
 public class UserServiceImpl implements UserService {
 	public void add() {

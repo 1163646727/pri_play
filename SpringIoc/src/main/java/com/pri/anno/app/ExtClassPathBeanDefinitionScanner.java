@@ -1,40 +1,36 @@
 package com.pri.anno.app;
 
-import com.pri.anno.annotation.ExtService;
 import com.pri.anno.utils.ClassUtil;
 import org.apache.commons.lang.StringUtils;
-
 import java.lang.reflect.Field;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @ClassName: ExtClassPathBeanDefinitionScanner
- * @Description: 自定义springIOC注解版本
- * @Remark:
+ * className: ExtClassPathBeanDefinitionScanner <BR>
+ * description: 自定义springIOC注解版本<BR>
+ * remark: <BR>
  * 1.使用java的反射机制扫包，获取当前包下的全部类<BR>
  * 2.判断类上是否存在注入的bean注解<BR>
  * 3.如果存在注解，使用反射机制，进行初始化
- * @Auther: Chenqi
- * @Date: 2019/7/23 0023 下午 11:22
- * @Version 1.0 jdk1.8
+ * author: ChenQi <BR>
+ * createDate: 2019-07-23 13:41 <BR>
  */
 public class ExtClassPathBeanDefinitionScanner {
     //存储扫包的路径 ChenQi;
     private String packagePath;
-    //存储bean对象 ChenQi;
+    //创建容器，存储bean对象(bean容器/工厂) ChenQi;
     private static  ConcurrentHashMap<String, Object> beanMap = new ConcurrentHashMap<String, Object> ();
-
+    
     /**
-     *@MethodName:  ExtClassPathBeanDefinitionScanner
-     *@Description: 构造函数，传入扫包的路径
-     *@Remark: <BR>
-     *@Param: [packagePath]
-     *@Return:
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/23 0023 下午 11:47
+     * methodName: ExtClassPathBeanDefinitionScanner <BR>
+     * description: 构造函数，传入扫包的路径<BR>
+     * remark: <BR>
+     * param: packagePath <BR>
+     * return:  <BR>
+     * author:  <BR>
+     * createDate:  2019-07-23<BR>
      */
     public ExtClassPathBeanDefinitionScanner(String packagePath) throws Exception {
         this.packagePath = packagePath;
@@ -48,26 +44,27 @@ public class ExtClassPathBeanDefinitionScanner {
     }
 
     /**
-     *@MethodName:  getBean
-     *@Description: 根据beanId获取对象
-     *@Remark: <BR>
-     *@Param: [benaId]
-     *@Return: java.lang.Object
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/23 0023 下午 11:49
+     * methodName: getBean <BR>
+     * description: 根据beanId获取对象<BR>
+     * remark: <BR>
+     * param: benaId <BR>
+     * return: java.lang.Object <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-07-23 13:57 <BR>
      */
     public Object getBean(String benaId) throws Exception {
         Object object =  beanMap.get (benaId);
         return object;
     }
+    
     /**
-     *@MethodName:  ClassAnnotationSannerList
-     *@Description: 使用java的反射机制扫包，获取当前包下的全部类
-     *@Remark: <BR>
-     *@Param: []
-     *@Return: java.util.List<java.lang.Class>
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/23 0023 下午 11:52
+     * methodName: ClassAnnotationSannerList <BR>
+     * description: 使用java的反射机制扫包，获取当前包下的全部类<BR>
+     * remark: <BR>
+     * param:  <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-07-23 13:48 <BR>
      */
     public void ClassAnnotationSannerList() throws Exception {
         if (StringUtils.isEmpty (packagePath))
@@ -76,25 +73,27 @@ public class ExtClassPathBeanDefinitionScanner {
         //使用反射机制，获取包下的全部类 ChenQi;
         List<Class<?>> ClassSannerList = ClassUtil.getClasses (packagePath);
         for (Class classInfo : ClassSannerList) {
+            // 判断类上是否存在@ExtService注解 ChenQi
            //ExtService extService = (ExtService) classInfo.getDeclaredAnnotation(ExtService.class);
            // if (extService != null){
                 //获取bean对象的名称,首字母转小写
                 String beanName = toLowerCaseFirstOne(classInfo.getSimpleName ());
                 //反射机制初始化对象 ChenQi;
                 Object newInstance = classInfo.newInstance ();
+                // 将对象存储到bean容器中 ChenQi
                 beanMap.put (beanName,newInstance);
            // }
         }
     }
 
     /**
-     *@MethodName:  toLowerCaseFirstOne
-     *@Description: 首字母转小写
-     *@Remark: <BR>
-     *@Param: [s]
-     *@Return: java.lang.String
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/24 0024 上午 12:22
+     * methodName: toLowerCaseFirstOne <BR>
+     * description: 首字母转小写<BR>
+     * remark: <BR>
+     * param: s <BR>
+     * return: java.lang.String <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-07-23 13:49 <BR>
      */
     public static String toLowerCaseFirstOne(String s) {
         if (Character.isLowerCase(s.charAt(0))) {
@@ -105,13 +104,13 @@ public class ExtClassPathBeanDefinitionScanner {
     }
 
     /**
-     *@MethodName:  attriAssign
-     *@Description: 使用反射读取类的属性,赋值信息
-     *@Remark: <BR>
-     *@Param: []
-     *@Return: void
-     *@Author: ChenQi
-     *@CreateDate: 2019/7/24 0024 上午 2:01
+     * methodName: attriAssign <BR>
+     * description: 使用反射读取类的属性,赋值信息<BR>
+     * remark: <BR>
+     * param:  <BR>
+     * return: void <BR>
+     * author: ChenQi <BR>
+     * createDate: 2019-07-23 13:53 <BR>
      */
     public void attriAssign(){
         Iterator<String> iter = beanMap.keySet ().iterator ();

@@ -1,7 +1,7 @@
 package com.pri.anno.service.impl;
 
 import com.pri.anno.annotation.ExtService;
-import com.pri.service.OrderService;
+import com.pri.anno.service.OrderService;
 
 @ExtService
 public class OrderServiceImpl implements OrderService {

@@ -1,6 +1,12 @@
 package com.pri.xml.service;
 
-//user 服务层
+/**
+ * className: UserService <BR>
+ * description: user 服务层<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2020-04-02 14:08 <BR>
+ */
 public interface UserService {
 
 	public void add();

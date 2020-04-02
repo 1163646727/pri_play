@@ -5,12 +5,11 @@ import com.pri.xml.app.ExtClassPathXmlApplicationContext;
 import com.pri.xml.service.impl.UserServiceImpl;
 
 /**
- * @ClassName: Test001
- * @Description: 测试自定义的ExcClassPathXmlApplicationContext
- * @Remark: <BR>
- * @Auther: Chenqi
- * @Date: 2019/7/23 0023 下午 10:33
- * @Version 1.0 jdk1.8
+ * className: Test001 <BR>
+ * description: 测试自定义的ExcClassPathXmlApplicationContext<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019-07-23 14:09 <BR>
  */
 public class Test001 {
     public static void main(String[] args) throws Exception {

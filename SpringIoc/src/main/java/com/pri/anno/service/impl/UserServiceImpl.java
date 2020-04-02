@@ -1,18 +1,15 @@
 package com.pri.anno.service.impl;
 
-
 import com.pri.anno.annotation.ExtResource;
 import com.pri.anno.annotation.ExtService;
-import com.pri.service.OrderService;
-import com.pri.service.UserService;
+import com.pri.anno.service.UserService;
 
-//user 服务层
 /**
- * class name:UserServiceImpl <BR>
- * class description: please write your description <BR>
- * Remark: <BR>
- * @version 1.00 2019年7月20日
- * @author **)ChenQi
+ * className: UserServiceImpl <BR>
+ * description: user 服务层<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019-07-23 14:04 <BR>
  */
 @ExtService
 public class UserServiceImpl implements UserService {
