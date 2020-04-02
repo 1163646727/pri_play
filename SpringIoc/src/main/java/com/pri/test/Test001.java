@@ -14,11 +14,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.mchange.lang.StringUtils;
 
 /**
- * class name:Test001 <BR>
- * class description: 解析xml文件 <BR>
- * Remark: <BR>
- * @version 1.00 2019年7月21日
- * @author **)ChenQi
+ * className: Test001 <BR>
+ * description: 解析xml文件<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019年7月21日 12:44 <BR>
  */
 public class Test001 {
 
@@ -35,13 +35,15 @@ public class Test001 {
 		//解析xml
 		getNodes(rootElement);
 	}
-	
+
 	/**
-	 * Method name: getNodes <BR>
-	 * Description: 解析xml<BR>
-	 * Remark: <BR>
-	 * @param rootElement  void<BR>
-	 * @author **)ChenQi
+	 * methodName: getNodes <BR>
+	 * description: 解析xml<BR>
+	 * remark: <BR>
+	 * param: rootElement <BR>
+	 * return: void <BR>
+	 * author: ChenQi <BR>
+	 * createDate: 2019-07-21 12:47 <BR>
 	 */
 	public void getNodes(Element rootElement){
 		//使用迭代器获取子节点信息
@@ -68,14 +70,15 @@ public class Test001 {
 			getNodes(next);
 		}
 	}
-	
+
 	/**
-	 * Method name: getResourceAsStream <BR>
-	 * Description: 读取文件，转换成Document <BR>
-	 * Remark: <BR>
-	 * @param xmlPath
-	 * @return  InputStream<BR>
-	 * @author **)ChenQi
+	 * methodName: getResourceAsStream <BR>
+	 * description: 读取文件，转换成Document<BR>
+	 * remark: <BR>
+	 * param: xmlPath <BR>
+	 * return: java.io.InputStream <BR>
+	 * author: ChenQi <BR>
+	 * createDate: 2019-07-21 12:45 <BR>
 	 */
 	public InputStream getResourceAsStream(String xmlPath){
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(xmlPath);

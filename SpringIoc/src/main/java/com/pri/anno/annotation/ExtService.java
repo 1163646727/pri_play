@@ -6,11 +6,11 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * class name:ExtService <BR>
- * class description: 自定义注解，service注入bean容器 <BR>
- * Remark: <BR>
- * @version 1.00 2019年7月21日
- * @author **)ChenQi
+ * className: ExtService <BR>
+ * description: 自定义注解，service注入bean容器<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019-07-21 13:01 <BR>
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
