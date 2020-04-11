@@ -40,12 +40,12 @@ public class OrderService implements Runnable {
 		}
 	}
 
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		System.out.println("多线程生成number");
 		// OrderService orderService = new OrderService();
 		for (int i = 0; i < 100; i++) {
 			new Thread(new OrderService()).start();
 		}
-	}*/
+	}
 
 }
