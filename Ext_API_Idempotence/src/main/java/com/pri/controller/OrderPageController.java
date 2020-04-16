@@ -41,8 +41,9 @@ public class OrderPageController {
 	@RequestMapping("/addOrderPage")
 	@ExtApiIdempotent(type = ConstantUtils.EXTAPIFROM)
 	public String addOrder(OrderEntity orderEntity) {
-		int addOrder = orderMapper.addOrder(orderEntity);
-		return addOrder > 0 ? "success" : "fail";
+		/*int addOrder = orderMapper.addOrder(orderEntity);
+		return addOrder > 0 ? "success" : "fail";*/
+		return "操作成功！";
 	}
 
 }
