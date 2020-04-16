@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ProducerThread implements Runnable{
     // 阻塞队列ChenQi;
     private BlockingQueue<String> blockingQueue;
+    /** 原子类 ChenQi*/
     private AtomicInteger count = new AtomicInteger();
     private volatile boolean FLAG = true;
 

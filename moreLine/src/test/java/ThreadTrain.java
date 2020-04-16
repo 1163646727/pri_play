@@ -28,13 +28,13 @@ public class ThreadTrain implements Runnable {
       *author: ChenQi <BR>
       *createDate: 2019-08-23 13:41 <BR>
       */
-    public void sale(){
+    public synchronized void sale(){
         // 同步代码块ChenQi;
-        //synchronized (this){
+        synchronized (this){
             if (trainCount>0) {
                 System.out.println(Thread.currentThread().getName()+",出售第"+(100-trainCount)+ "张票");
                 trainCount--;
             }
-       // }
+       }
     }
 }
