@@ -2,7 +2,6 @@ package com.pri.test;
 
 import com.pri.app.ConnectionPool;
 import com.pri.entity.DbBean;
-
 import java.sql.Connection;
 
 // 管理线程池

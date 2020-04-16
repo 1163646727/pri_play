@@ -1,15 +1,15 @@
 package com.pri.entity;
 
 /**
- * @ClassName:  DbBean
- * @Description: 外部配置文件信息
- * @Remark: <BR>
- * @Author:  ChenQi
- * @CreateDate:  2019/8/3 0003 上午 8:58
+ * className: DbBean <BR>
+ * description: 外部配置文件信息<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2019-08-03 13:08 <BR>
  */
 public class DbBean {
 
-	/* 链接属性 */
+	/** 链接属性 ChenQi*/
 	private String driverName = "com.mysql.jdbc.Driver";
 
 	private String url = "jdbc:mysql://47.110.150.127/test";
@@ -18,19 +18,26 @@ public class DbBean {
 
 	private String password = "root";
 
-	private String poolName = "test";// 连接池名字
+	/** 连接池名字 ChenQi*/
+	private String poolName = "test";
 
-	private int minConnections = 1; // 空闲池，最小连接数
+	/** 空闲池，最小连接数 ChenQi*/
+	private int minConnections = 1;
 
-	private int maxConnections = 10; // 空闲池，最大连接数
+	/** 空闲池，最大连接数 ChenQi*/
+	private int maxConnections = 10;
 
-	private int initConnections = 5;// 初始化连接数
+	/** 初始化连接数 ChenQi*/
+	private int initConnections = 5;
 
-	private long connTimeOut = 1000;// 重复获得连接的频率
+	/** 重复获得连接的频率 ChenQi*/
+	private long connTimeOut = 1000;
 
-	private int maxActiveConnections = 100;// 最大允许的连接数，和数据库对应
+	/** 最大允许的连接数，和数据库对应 ChenQi*/
+	private int maxActiveConnections = 100;
 
-	private long connectionTimeOut = 1000 * 60 * 20;// 连接超时时间，默认20分钟
+	/** 连接超时时间，默认20分钟 ChenQi*/
+	private long connectionTimeOut = 1000 * 60 * 20;
 
 	public String getDriverName() {
 		return driverName;
