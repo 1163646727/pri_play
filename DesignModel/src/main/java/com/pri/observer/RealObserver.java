@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class RealObserver implements Subject{
     /**
-     * description: 存储订阅公众号的微信用户
+     * description: 存储订阅公众号的微信用户的队列
      * 把所有观察者对象保存在一个集合里，每个主题都可以有任意数量的观察者。
      * author:  ChenQi <BR>
      * createDate:  2019-09-03 11:29  <BR>
@@ -47,6 +47,7 @@ public class RealObserver implements Subject{
     public void removeObserver(Observer observer) {
         list.remove(observer);
     }
+
     /**
      * methodName: notifyAllObserver <BR>
      * description: 通知订阅者更新消息<BR>

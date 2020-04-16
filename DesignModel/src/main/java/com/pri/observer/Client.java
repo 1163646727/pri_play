@@ -15,11 +15,12 @@ public class Client {
         WeiXinUser weiXinUser1 = new WeiXinUser("张三");
         WeiXinUser weiXinUser2 = new WeiXinUser("李四");
         WeiXinUser weiXinUser3 = new WeiXinUser("王五");
-        // 添加订阅者 ChenQi;
+        // 添加订阅者，是一个订阅主题的行为 ChenQi;
         realObserver.registerObserver(weiXinUser1);
         realObserver.registerObserver(weiXinUser2);
         realObserver.registerObserver(weiXinUser3);
-        // 公众号更新发出消息给订阅的微信用户 ChenQi;
+        // 公众号更新消息发布给订阅的微信用户，是一个发布行为 ChenQi;
         realObserver.notifyAllObserver("公众号内容更新！");
+        realObserver.notifyAllObserver("测试是否消费成功！");
     }
 }
