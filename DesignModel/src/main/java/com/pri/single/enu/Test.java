@@ -1,9 +1,13 @@
 package com.pri.single.enu;
 
-import com.pri.single.SingleHunger;
-
+/**
+ * className: Test <BR>
+ * description: 测试枚举实现单列模式<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2020-04-16 10:58 <BR>
+ */
 import java.lang.reflect.Constructor;
-
 public class Test {
     public static void main(String [] args){
         Object user = User.getInstance();

@@ -1,5 +1,12 @@
 package com.pri.single.enu;
 
+/**
+ * className: User <BR>
+ * description: 枚举实现单列模式<BR>
+ * remark: <BR>
+ * author: ChenQi <BR>
+ * createDate: 2020-04-16 10:57 <BR>
+ */
 public class User {
     //私有化构造函数
     private User(){ }
