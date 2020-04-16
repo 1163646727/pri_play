@@ -70,14 +70,21 @@ public class ExtApiAopIdempotent {
             if (ConstantUtils.EXTAPIHEAD.equals(type)) {
                 token = request.getHeader("token");
             }else if (ConstantUtils.EXTAPIFROM.equals(type)){
+                //token = (String) request.getAttribute("token");
                 token = request.getParameter("token");
             }else {
                 return "令牌错误！";
             }
-            
+
+            if (token == null) {
+                System.out.println("未获取令牌！");
+                response("未获取令牌！");
+                return "未获取令牌！";
+            }
             // 查询令牌 ChenQi;
             boolean isToken = redisToken.findToken(token);
             if (!isToken) {
+                System.out.println("请勿重复提交！");
                 response("请勿重复提交！");
                 return null;
             }
