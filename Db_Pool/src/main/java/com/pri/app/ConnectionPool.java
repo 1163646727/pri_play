@@ -158,7 +158,7 @@ public class ConnectionPool implements IConnectionPool {
             } catch (Exception e) {
             }
         }
-        countConne++;
+        countConne--;
 
     }
 }
